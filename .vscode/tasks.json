@@ -1,0 +1,157 @@
+{
+    "inputs": [
+        {
+            "default": "Release",
+            "description": "Select the configuration",
+            "id": "configuration",
+            "options": [
+                "Debug",
+                "Release"
+            ],
+            "type": "pickString"
+        },
+        {
+            "description": "Type your feed access token",
+            "id": "feedToken",
+            "type": "promptString"
+        },
+        {
+            "default": "https://nuget.pkg.github.com/josemaria-toro/index.json",
+            "description": "Type your feed url",
+            "id": "feedUrl",
+            "type": "promptString"
+        }
+    ],
+    "tasks": [
+        {
+            "command": "dotnet restore --nologo --verbosity normal *.sln",
+            "group": "none",
+            "label": "Restore packages",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "reveal": "silent",
+                "revealProblems": "onProblem"
+            },
+            "problemMatcher": "$msCompile",
+            "runOptions": {
+                "runOn": "default"
+            },
+            "type": "shell"
+        },
+        {
+            "command": "dotnet clean --configuration ${input:configuration} --nologo --verbosity normal *.sln",
+            "dependsOn": [
+                "Restore packages"
+            ],
+            "group": {
+                "isDefault": false,
+                "kind": "none"
+            },
+            "label": "Clean workspace",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem"
+            },
+            "problemMatcher": "$msCompile",
+            "runOptions": {
+                "runOn": "default"
+            },
+            "type": "shell"
+        },
+        {
+            "command": "dotnet build --configuration ${input:configuration} --nologo --no-restore --verbosity normal *.sln",
+            "dependsOn": [
+                "Clean workspace"
+            ],
+            "group": {
+                "isDefault": true,
+                "kind": "build"
+            },
+            "label": "Build solution",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "reveal": "silent",
+                "revealProblems": "onProblem"
+            },
+            "problemMatcher": "$msCompile",
+            "runOptions": {
+                "runOn": "default"
+            },
+            "type": "shell"
+        },
+        {
+            "command": "dotnet test --collect:'XPlat Code Coverage' --configuration ${input:configuration} --no-build --nologo --results-directory .artifacts/reports --verbosity normal *.sln",
+            "dependsOn": [
+                "Build solution"
+            ],
+            "group": {
+                "isDefault": true,
+                "kind": "test"
+            },
+            "label": "Run tests",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem"
+            },
+            "problemMatcher": "$msCompile",
+            "runOptions": {
+                "runOn": "default"
+            },
+            "type": "shell"
+        },
+        {
+            "command": "dotnet pack --configuration ${input:configuration} --include-source --include-symbols --no-build --nologo --no-restore --output .artifacts/packages --verbosity normal *.sln",
+            "dependsOn": [
+                "Run tests"
+            ],
+            "group": {
+                "isDefault": false,
+                "kind": "none"
+            },
+            "label": "Build packages",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "reveal": "silent",
+                "revealProblems": "onProblem"
+            },
+            "problemMatcher": "$msCompile",
+            "runOptions": {
+                "runOn": "default"
+            },
+            "type": "shell"
+        },
+        {
+            "command": "dotnet nuget push .artifacts/packages/*.nupkg --api-key ${input:feedToken} --source ${input:feedUrl}",
+            "group": {
+                "isDefault": false,
+                "kind": "none"
+            },
+            "label": "Publish packages",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "reveal": "silent",
+                "revealProblems": "onProblem"
+            },
+            "problemMatcher": "$msCompile",
+            "runOptions": {
+                "runOn": "default"
+            },
+            "type": "shell"
+        }
+    ],
+    "version": "2.0.0"
+}
