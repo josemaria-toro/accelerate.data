@@ -49,7 +49,7 @@
         <PackageTags>Accelerate Data Repositories Entities MariaDB MySQL</PackageTags>
         <PackageVersion>1.0.0-preview.20231023.1</PackageVersion>
         <RepositoryType>git</RepositoryType>
-        <RepositoryUrl>https://github.com/josemaria-toro/accelerate.git</RepositoryUrl>
+        <RepositoryUrl>https://github.com/josemaria-toro/accelerate.data.git</RepositoryUrl>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)'=='Debug'">
