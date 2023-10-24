@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <AnalysisLevel>5.0</AnalysisLevel>
+        <AssemblyName>Accelerate.Data.EntityFramework</AssemblyName>
+        <AssemblyOriginatorKeyFile>../.assets/signature.snk</AssemblyOriginatorKeyFile>
+        <AssemblyTitle>Accelerate.Data.EntityFramework</AssemblyTitle>
+        <AssemblyVersion>1.0.0</AssemblyVersion>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+        <Company>Accelerate</Company>
+        <Configuration>Release</Configuration>
+        <Configurations>Debug;Release</Configurations>
+        <Copyright>Accelerate © 2023</Copyright>
+        <Description>Implementation of data repositories based on entity framework</Description>
+        <EnableNETAnalyzers>true</EnableNETAnalyzers>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <FileVersion>1.0.0</FileVersion>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <InformationalVersion>1.0.0</InformationalVersion>
+        <NeutralLanguage>en-US</NeutralLanguage>
+        <Nullable>disable</Nullable>
+        <Product>Accelerate</Product>
+        <RootNamespace>Accelerate</RootNamespace>
+        <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
+        <RunAnalyzersDuringLiveAnalysis>true</RunAnalyzersDuringLiveAnalysis>
+        <SignAssembly>true</SignAssembly>
+        <TargetFrameworks>net7.0;net6.0;netstandard2.0</TargetFrameworks>
+        <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
+    </PropertyGroup>
+    <PropertyGroup>
+        <Authors>Jose Maria Toro</Authors>
+        <ContentTargetFolders>content</ContentTargetFolders>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <IncludeBuildOutput>true</IncludeBuildOutput>
+        <IncludeContentInPack>true</IncludeContentInPack>
+        <IncludeSource>true</IncludeSource>
+        <IncludeSymbols>true</IncludeSymbols>
+        <IsPackable>true</IsPackable>
+        <IsTool>false</IsTool>
+        <PackageDescription>Implementation of data repositories based on entity framework</PackageDescription>
+        <PackageIcon>accelerate.png</PackageIcon>
+        <PackageId>Accelerate.Data.EntityFramework</PackageId>
+        <PackageLicenseFile>license.txt</PackageLicenseFile>
+        <PackageProjectUrl>https://github.com/users/josemaria-toro/projects/9</PackageProjectUrl>
+        <PackageReadmeFile>entity_framework.md</PackageReadmeFile>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <PackageTags>Accelerate Data Repositories Entities EntityFramework</PackageTags>
+        <PackageVersion>1.0.0-preview.20231023.1</PackageVersion>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/josemaria-toro/accelerate.data.git</RepositoryUrl>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+        <DefineDebug>true</DefineDebug>
+        <DefineTrace>true</DefineTrace>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)'=='Release'">
+        <Optimize>true</Optimize>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Include="../.assets/accelerate.png" Pack="true" PackagePath="" />
+        <None Include="../.assets/license.txt" Pack="true" PackagePath="" />
+        <None Include="../.wiki/entity_framework.md" Pack="true" PackagePath="" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Accelerate.Data\Accelerate.Data.csproj" />
+    </ItemGroup>
+    <ItemGroup Condition="$(TargetFramework.Contains('net7'))">
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.12" />
+    </ItemGroup>
+    <ItemGroup Condition="$(TargetFramework.Contains('net6'))">
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.23" />
+    </ItemGroup>
+    <ItemGroup Condition="$(TargetFramework.Contains('netstandard2.0'))">
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.32" />
+    </ItemGroup>
+</Project>
