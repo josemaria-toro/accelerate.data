@@ -90,5 +90,7 @@ public class MyRepository : MongoRepository<MyEntity, MyRepositoryOptions>
 }
 ```
 ## Changes history
+**Version 6.0.0**
+- Changed version to a system based on .NET Core version supported.  
 **Version 1.0.0**
 - Include base classes for entities, repositories and repository options.  
