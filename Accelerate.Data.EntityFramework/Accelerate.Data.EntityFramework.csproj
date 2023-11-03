@@ -5,7 +5,7 @@
         <AssemblyName>Accelerate.Data.EntityFramework</AssemblyName>
         <AssemblyOriginatorKeyFile>../.assets/signature.snk</AssemblyOriginatorKeyFile>
         <AssemblyTitle>Accelerate.Data.EntityFramework</AssemblyTitle>
-        <AssemblyVersion>1.0.0</AssemblyVersion>
+        <AssemblyVersion>6.0.0</AssemblyVersion>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
         <Company>Accelerate</Company>
         <Configuration>Release</Configuration>
@@ -14,11 +14,11 @@
         <Description>Implementation of data repositories based on entity framework</Description>
         <EnableNETAnalyzers>true</EnableNETAnalyzers>
         <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-        <FileVersion>1.0.0</FileVersion>
+        <FileVersion>6.0.0</FileVersion>
         <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <ImplicitUsings>disable</ImplicitUsings>
-        <InformationalVersion>1.0.0</InformationalVersion>
+        <InformationalVersion>6.0.0</InformationalVersion>
         <NeutralLanguage>en-US</NeutralLanguage>
         <Nullable>disable</Nullable>
         <Product>Accelerate</Product>
@@ -47,7 +47,7 @@
         <PackageReadmeFile>entity_framework.md</PackageReadmeFile>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <PackageTags>Accelerate Data Repositories Entities EntityFramework</PackageTags>
-        <PackageVersion>1.0.0-preview.20231023.1</PackageVersion>
+        <PackageVersion>6.0.0-preview.20231103.1</PackageVersion>
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://github.com/josemaria-toro/accelerate.data.git</RepositoryUrl>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
